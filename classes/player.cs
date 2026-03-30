@@ -7,6 +7,6 @@ namespace oopTest.classes.player
     internal class player
     {
 
-        public List<string> PlayerHand { get; set; } = new List<string>();
+        public List<Card> PlayerHand { get; set; } = new List<Card>();
     }
 }
