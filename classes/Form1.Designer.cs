@@ -49,10 +49,9 @@
             // 
             // shuffleButton
             // 
-            shuffleButton.Location = new Point(585, 24);
-            shuffleButton.Margin = new Padding(3, 2, 3, 2);
+            shuffleButton.Location = new Point(1116, 26);
             shuffleButton.Name = "shuffleButton";
-            shuffleButton.Size = new Size(82, 22);
+            shuffleButton.Size = new Size(94, 29);
             shuffleButton.TabIndex = 0;
             shuffleButton.Text = "shut";
             shuffleButton.UseVisualStyleBackColor = true;
@@ -60,10 +59,9 @@
             // 
             // giveCards
             // 
-            giveCards.Location = new Point(585, 65);
-            giveCards.Margin = new Padding(3, 2, 3, 2);
+            giveCards.Location = new Point(1116, 81);
             giveCards.Name = "giveCards";
-            giveCards.Size = new Size(149, 22);
+            giveCards.Size = new Size(170, 29);
             giveCards.TabIndex = 1;
             giveCards.Text = "geef kaarten";
             giveCards.UseVisualStyleBackColor = true;
@@ -71,10 +69,9 @@
             // 
             // hitButton
             // 
-            hitButton.Location = new Point(585, 110);
-            hitButton.Margin = new Padding(3, 2, 3, 2);
+            hitButton.Location = new Point(1116, 141);
             hitButton.Name = "hitButton";
-            hitButton.Size = new Size(82, 22);
+            hitButton.Size = new Size(94, 29);
             hitButton.TabIndex = 2;
             hitButton.Text = "hit";
             hitButton.UseVisualStyleBackColor = true;
@@ -82,10 +79,9 @@
             // 
             // standButton
             // 
-            standButton.Location = new Point(585, 146);
-            standButton.Margin = new Padding(3, 2, 3, 2);
+            standButton.Location = new Point(1116, 189);
             standButton.Name = "standButton";
-            standButton.Size = new Size(82, 30);
+            standButton.Size = new Size(94, 40);
             standButton.TabIndex = 3;
             standButton.Text = "stand";
             standButton.UseVisualStyleBackColor = true;
@@ -93,40 +89,36 @@
             // 
             // pictureBoxDealer1
             // 
-            pictureBoxDealer1.Location = new Point(46, 9);
-            pictureBoxDealer1.Margin = new Padding(3, 2, 3, 2);
+            pictureBoxDealer1.Location = new Point(53, 12);
             pictureBoxDealer1.Name = "pictureBoxDealer1";
-            pictureBoxDealer1.Size = new Size(109, 134);
+            pictureBoxDealer1.Size = new Size(125, 179);
             pictureBoxDealer1.TabIndex = 4;
             pictureBoxDealer1.TabStop = false;
             pictureBoxDealer1.Click += pictureBoxDealer1_Click;
             // 
             // pictureBoxDealer2
             // 
-            pictureBoxDealer2.Location = new Point(180, 9);
-            pictureBoxDealer2.Margin = new Padding(3, 2, 3, 2);
+            pictureBoxDealer2.Location = new Point(206, 12);
             pictureBoxDealer2.Name = "pictureBoxDealer2";
-            pictureBoxDealer2.Size = new Size(109, 134);
+            pictureBoxDealer2.Size = new Size(125, 179);
             pictureBoxDealer2.TabIndex = 5;
             pictureBoxDealer2.TabStop = false;
             pictureBoxDealer2.Click += pictureBoxDealer2_Click;
             // 
             // pictureBox1Player
             // 
-            pictureBox1Player.Location = new Point(46, 257);
-            pictureBox1Player.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1Player.Location = new Point(53, 343);
             pictureBox1Player.Name = "pictureBox1Player";
-            pictureBox1Player.Size = new Size(109, 134);
+            pictureBox1Player.Size = new Size(125, 179);
             pictureBox1Player.TabIndex = 6;
             pictureBox1Player.TabStop = false;
             pictureBox1Player.Click += pictureBox1Player_Click;
             // 
             // pictureBox2Player
             // 
-            pictureBox2Player.Location = new Point(180, 257);
-            pictureBox2Player.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2Player.Location = new Point(206, 343);
             pictureBox2Player.Name = "pictureBox2Player";
-            pictureBox2Player.Size = new Size(109, 134);
+            pictureBox2Player.Size = new Size(125, 179);
             pictureBox2Player.TabIndex = 7;
             pictureBox2Player.TabStop = false;
             pictureBox2Player.Click += pictureBox2Player_Click;
@@ -134,35 +126,37 @@
             // shuffleLabel
             // 
             shuffleLabel.AutoSize = true;
-            shuffleLabel.Location = new Point(526, 31);
+            shuffleLabel.Location = new Point(1048, 35);
             shuffleLabel.Name = "shuffleLabel";
-            shuffleLabel.Size = new Size(38, 15);
+            shuffleLabel.Size = new Size(50, 20);
             shuffleLabel.TabIndex = 8;
             shuffleLabel.Text = "label1";
             shuffleLabel.Click += label1_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(342, 65);
+            pictureBox1.Location = new Point(391, 87);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(0, 0);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
-            // pictureBoxDealer3_Click
+            // pictureBoxDealer3
             // 
-            pictureBoxDealer3.Location = new Point(315, 9);
-            pictureBoxDealer3.Name = "pictureBoxDealer3_Click";
-            pictureBoxDealer3.Size = new Size(109, 134);
+            pictureBoxDealer3.Location = new Point(360, 12);
+            pictureBoxDealer3.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxDealer3.Name = "pictureBoxDealer3";
+            pictureBoxDealer3.Size = new Size(125, 179);
             pictureBoxDealer3.TabIndex = 10;
             pictureBoxDealer3.TabStop = false;
             pictureBoxDealer3.Click += pictureBoxDealer3_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 546);
+            ClientSize = new Size(1321, 728);
             Controls.Add(pictureBoxDealer3);
             Controls.Add(pictureBox1);
             Controls.Add(shuffleLabel);
@@ -174,7 +168,6 @@
             Controls.Add(hitButton);
             Controls.Add(giveCards);
             Controls.Add(shuffleButton);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = " ";
             Load += Form1_Load;

@@ -36,8 +36,9 @@ namespace oopTest
             // create containers for the hands
             //var player = new List<string>();
             //var dealer = new List<string>();
-            player.PlayerHand.Clear();
-            dealer.DealerHand.Clear();
+            //player.PlayerHand.Clear();
+            //dealer.DealerHand.Clear();
+
             // deal into those lists
             deck.DealCards(player.PlayerHand, dealer.DealerHand);
 
@@ -64,13 +65,13 @@ namespace oopTest
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int dealerScore = game.CalculateScore(dealer.DealerHand);
+            int dealerScore = game.CalculateScoreOfDealer(dealer.DealerHand);
             string result;
 
 
             deck.Hit(dealer.DealerHand);
             //pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
-            pictureBoxDealer3.Image = Image.FromFile("Images/" + dealer.DealerHand[0].Image);
+            pictureBoxDealer3.Image = Image.FromFile("Images/" + dealer.DealerHand[2].Image);
 
             if (dealerScore > 21)
             {
@@ -81,20 +82,21 @@ namespace oopTest
 
         private void standButton_Click(object sender, EventArgs e)
         {
-            int playerScore = game.CalculateScore(player.PlayerHand);
-            int dealerScore = game.CalculateScore(dealer.DealerHand);
+            int playerScore = game.CalculateScoreOfPlayer(player.PlayerHand);
+            int dealerScore = game.CalculateScoreOfDealer(dealer.DealerHand);
 
             // Dealer speelt
-            while (dealerScore < 17)
-            {
-                dealer.DealerHand.Add(deck.Cards[0]);
-                deck.Cards.RemoveAt(0);
 
-                dealerScore = game.CalculateScore(dealer.DealerHand);
-            }
+            //while (dealerScore < 17)
+            //{
+            //    dealer.DealerHand.Add(deck.Cards[0]);
+            //    deck.Cards.RemoveAt(0);
+
+            //    dealerScore = game.CalculateScore(dealer.DealerHand);
+            //}
 
             // Laat 2e kaart zien
-            pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
+            //pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
 
 
             Console.WriteLine($"Dealer value: {dealerScore}");
@@ -117,6 +119,17 @@ namespace oopTest
             player.PlayerHand.Clear();
             dealer.DealerHand.Clear();
             playerScore = 0; dealerScore = 0;
+            pictureBoxDealer1.Image = null;
+            pictureBoxDealer2.Image = null;
+            pictureBoxDealer3.Image = null;
+
+
+            // Player picture boxes clearen
+            pictureBox1Player.Image = null;
+            pictureBox2Player.Image = null;
+
+
+
         }
 
 

@@ -17,17 +17,17 @@ namespace oopTest.classes.dealer
         //int totalValue = 0;
 
 
-        static void Hit(List<Card> deck, List<Card> hand)
-        {
-            hand.Add(deck[0]);
-            deck.RemoveAt(0);
-            //int total = hand.Sum(c => c.Value);
+        //static void Hit(List<Card> deck, List<Card> hand)
+        //{
+        //    hand.Add(deck[0]);
+        //    deck.RemoveAt(0);
+        //    //int total = hand.Sum(c => c.Value);
 
-            //if (total > 21 && hand.Any(c => c.Rank == "ace"))
-            //{
-            //    total -= 10;
-            //}
-        }
+        //    //if (total > 21 && hand.Any(c => c.Rank == "ace"))
+        //    //{
+        //    //    total -= 10;
+        //    //}
+        //}
 
         public void dealerHandCards()
         {

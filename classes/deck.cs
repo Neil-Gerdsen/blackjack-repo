@@ -18,6 +18,7 @@ namespace oopTest.classes
             card = new Card();
             CreateDeck();
             Shuffle();
+            
         }
         string[] suits = { "hearts", "diamonds", "clubs", "spades" };
         string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace" };
@@ -85,6 +86,7 @@ namespace oopTest.classes
                 throw new Exception("Geen kaarten meer in het deck!");
             DealerHand.Add(Cards[0]);
             Cards.RemoveAt(0);
+            //MessageBox.Show(DealerHand());
         }
     }
 }
