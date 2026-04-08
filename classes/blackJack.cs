@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using oopTest.classes.dealer;
+using oopTest.classes.player;
 
 namespace oopTest.classes.blackJack
 {
@@ -13,6 +16,20 @@ namespace oopTest.classes.blackJack
             this.deck = deck;
         }
 
+        public int CalculateScore(List<Card> hand)
+        {
+            int total = hand.Sum(c => c.Value);
+
+            int aceCount = hand.Count(c => c.Rank == "ace");
+
+            while (total > 21 && aceCount > 0)
+            {
+                total -= 10;
+                aceCount--;
+            }
+
+            return total;
+        }
         public int CalculateScoreOfDealer(List<Card> DealerHand)
         {
             int total = DealerHand.Sum(c => c.Value);
@@ -27,19 +44,12 @@ namespace oopTest.classes.blackJack
 
             return total;
         }
-        public int CalculateScoreOfPlayer(List<Card> PlayerHand)
+        public void Message(List<Card> PlayerHand, List<Card> DealerHand)
         {
-            int total = PlayerHand.Sum(c => c.Value);
-
-            int aceCount = PlayerHand.Count(c => c.Rank == "ace");
-
-            while (total > 21 && aceCount > 0)
-            {
-                total -= 10;
-                aceCount--;
-            }
-
-            return total;
+            if (CalculateScore(DealerHand) >= 17)
+                {
+                    MessageBox.Show("it would be wise if you stand");
+                }              
         }
     }
 }

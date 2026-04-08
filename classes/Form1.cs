@@ -60,12 +60,13 @@ namespace oopTest
                 pictureBox2Player.Image = Image.FromFile("Images/" + player.PlayerHand[1].Image);
 
             }
+            game.Message(player.PlayerHand, dealer.DealerHand);
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int dealerScore = game.CalculateScoreOfDealer(dealer.DealerHand);
+            int dealerScore = game.CalculateScore(dealer.DealerHand);
             string result;
 
 
@@ -78,12 +79,14 @@ namespace oopTest
                 result = "Dealer bust! speler wint!";
                 MessageBox.Show(result);
             }
+            game.Message(player.PlayerHand, dealer.DealerHand);
+
         }
 
         private void standButton_Click(object sender, EventArgs e)
         {
-            int playerScore = game.CalculateScoreOfPlayer(player.PlayerHand);
-            int dealerScore = game.CalculateScoreOfDealer(dealer.DealerHand);
+            int playerScore = game.CalculateScore(player.PlayerHand);
+            int dealerScore = game.CalculateScore(dealer.DealerHand);
 
             // Dealer speelt
 
