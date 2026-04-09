@@ -48,8 +48,34 @@ namespace oopTest.classes.blackJack
         {
             if (CalculateScore(DealerHand) >= 17)
                 {
-                    MessageBox.Show("it would be wise if you stand");
-                }              
+                    if (CalculateScore(DealerHand) == 21)
+                    {
+                        MessageBox.Show("it would be wise if you stand");
+                    }
+                    else
+                    {
+                        MessageBox.Show("wow you are super lucky dont take a risk like this to mush");
+                    }
+            } 
+            else if (CalculateScore(DealerHand) < 17)
+                {
+                    MessageBox.Show("it would be wise if you hit");
+            }
+
         }
     }
 }
+//if (dealerScore >= 17 && dealerScore < 21)
+//{
+//    if (dealerScore == 21)
+//    {
+//        feedback = "wow you are super lucky dont take a risk like this to mush";
+//    }
+//    else
+//    {
+//        feedback = "you are lucky it would be wise to stand now";
+//    }
+
+//    MessageBox.Show(feedback);
+
+//}

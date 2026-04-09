@@ -23,6 +23,7 @@ namespace oopTest.classes
         string[] suits = { "hearts", "diamonds", "clubs", "spades" };
         string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace" };
         public List<Card> Cards { get; set; } = new List<Card>();
+        public int hitCount { get;  set; } = 0;
 
         public void CreateDeck()
         {

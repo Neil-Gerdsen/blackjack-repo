@@ -39,12 +39,14 @@
             shuffleLabel = new Label();
             pictureBox1 = new PictureBox();
             pictureBoxDealer3 = new PictureBox();
+            pictureBoxDealer4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDealer4).BeginInit();
             SuspendLayout();
             // 
             // shuffleButton
@@ -152,11 +154,21 @@
             pictureBoxDealer3.TabStop = false;
             pictureBoxDealer3.Click += pictureBoxDealer3_Click;
             // 
+            // pictureBoxDealer4
+            // 
+            pictureBoxDealer4.Location = new Point(523, 12);
+            pictureBoxDealer4.Name = "pictureBoxDealer4";
+            pictureBoxDealer4.Size = new Size(125, 179);
+            pictureBoxDealer4.TabIndex = 11;
+            pictureBoxDealer4.TabStop = false;
+            pictureBoxDealer4.Click += pictureBoxDealer4_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1321, 728);
+            Controls.Add(pictureBoxDealer4);
             Controls.Add(pictureBoxDealer3);
             Controls.Add(pictureBox1);
             Controls.Add(shuffleLabel);
@@ -177,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDealer4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,5 +207,6 @@
         private Label shuffleLabel;
         private PictureBox pictureBox1;
         private PictureBox pictureBoxDealer3;
+        private PictureBox pictureBoxDealer4;
     }
 }

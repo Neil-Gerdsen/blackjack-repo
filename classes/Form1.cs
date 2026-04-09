@@ -68,17 +68,32 @@ namespace oopTest
         {
             int dealerScore = game.CalculateScore(dealer.DealerHand);
             string result;
-
+            string feedback;
+            int hitCount = deck.hitCount;
+            
 
             deck.Hit(dealer.DealerHand);
+            
             //pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
-            pictureBoxDealer3.Image = Image.FromFile("Images/" + dealer.DealerHand[2].Image);
 
+            if (hitCount == 0)
+            {
+                pictureBoxDealer3.Image = Image.FromFile("Images/" + dealer.DealerHand[2].Image);
+                deck.hitCount = 1;
+            }
+            else if (hitCount == 1)
+            {
+                pictureBoxDealer4.Image = Image.FromFile("Images/" + dealer.DealerHand[3].Image);
+
+            }
+
+           
             if (dealerScore > 21)
             {
                 result = "Dealer bust! speler wint!";
                 MessageBox.Show(result);
             }
+
             game.Message(player.PlayerHand, dealer.DealerHand);
 
         }
@@ -125,6 +140,7 @@ namespace oopTest
             pictureBoxDealer1.Image = null;
             pictureBoxDealer2.Image = null;
             pictureBoxDealer3.Image = null;
+            pictureBoxDealer4.Image = null;
 
 
             // Player picture boxes clearen
@@ -167,6 +183,12 @@ namespace oopTest
         }
 
         private void pictureBoxDealer3_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void pictureBoxDealer4_Click(object sender, EventArgs e)
         {
 
         }
