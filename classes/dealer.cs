@@ -1,13 +1,24 @@
-﻿using System;
+﻿using oopTest.classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using oopTest.classes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace oopTest.classes.dealer
 {
     
     internal class dealer
     {
+        deck deck;
+        public int hitCount { get; set; } = 0;
+
+        public dealer() {
+
+            deck = new deck();
+
+
+
+        }
         Card card = new Card();
         public List<Card> DealerHand { get; set; } = new List<Card>();
         bool hit; 
@@ -43,16 +54,42 @@ namespace oopTest.classes.dealer
 
             //return totalValue;
         
-        }    
+        }
         //static void Stand()
         //{
         //    stand = true;
         //    endOfGame = true;
 
-            
+
 
 
         //}
 
+        public void Hit(List<Card> DealerHand)
+        {
+            if (deck.Cards.Count == 0)
+                throw new Exception("Geen kaarten meer in het deck!");
+            DealerHand.Add(deck.Cards[0]);
+            deck.Cards.RemoveAt(0);
+            //MessageBox.Show(DealerHand());
+        }
+        public void DealCards(List<Card> playerHand, List<Card> dealerHand)
+        {
+            if (deck.Cards.Count < 4)
+                throw new Exception("Niet genoeg kaarten!");
+
+            for (int i = 0; i < 2; i++)
+            {
+                playerHand.Add(deck.Cards[0]);
+                deck.Cards.RemoveAt(0);
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                dealerHand.Add(deck.Cards[0]);
+                deck.Cards.RemoveAt(0);
+            }
+
+        }
     }
 }

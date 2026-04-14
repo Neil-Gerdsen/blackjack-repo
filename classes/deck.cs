@@ -23,7 +23,6 @@ namespace oopTest.classes
         string[] suits = { "hearts", "diamonds", "clubs", "spades" };
         string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace" };
         public List<Card> Cards { get; set; } = new List<Card>();
-        public int hitCount { get;  set; } = 0;
 
         public void CreateDeck()
         {
@@ -62,32 +61,15 @@ namespace oopTest.classes
            
         }
 
-        public void DealCards(List<Card> playerHand, List<Card> dealerHand)
-        {
-            if (Cards.Count < 4)
-                throw new Exception("Niet genoeg kaarten!");
+       
 
-            for (int i = 0; i < 2; i++)
-            {
-                playerHand.Add(Cards[0]);
-                Cards.RemoveAt(0);
-            }
-
-            for (int i = 0; i < 2; i++)
-            {
-                dealerHand.Add(Cards[0]);
-                Cards.RemoveAt(0);
-            }
-
-        }
-
-        public void Hit(List<Card> DealerHand)
-        {
-            if (Cards.Count == 0)
-                throw new Exception("Geen kaarten meer in het deck!");
-            DealerHand.Add(Cards[0]);
-            Cards.RemoveAt(0);
-            //MessageBox.Show(DealerHand());
-        }
+        //public void Hit(List<Card> DealerHand)
+        //{
+        //    if (Cards.Count == 0)
+        //        throw new Exception("Geen kaarten meer in het deck!");
+        //    DealerHand.Add(Cards[0]);
+        //    Cards.RemoveAt(0);
+        //    //MessageBox.Show(DealerHand());
+        //}
     }
 }

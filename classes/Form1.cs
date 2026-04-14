@@ -40,7 +40,7 @@ namespace oopTest
             //dealer.DealerHand.Clear();
 
             // deal into those lists
-            deck.DealCards(player.PlayerHand, dealer.DealerHand);
+            dealer.DealCards(player.PlayerHand, dealer.DealerHand);
 
             // inform game of the lists (matches signatures that accept List<string>)
 
@@ -67,19 +67,21 @@ namespace oopTest
         private void button3_Click(object sender, EventArgs e)
         {
             int dealerScore = game.CalculateScore(dealer.DealerHand);
+            bool canDealerPlay = game.CanPLayDealer(dealerScore);
             string result;
             string feedback;
-            int hitCount = deck.hitCount;
+            int hitCount = dealer.hitCount;
             
-
-            deck.Hit(dealer.DealerHand);
+            if(Can)
+           
+            dealer.Hit(dealer.DealerHand);
             
             //pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
 
             if (hitCount == 0)
             {
                 pictureBoxDealer3.Image = Image.FromFile("Images/" + dealer.DealerHand[2].Image);
-                deck.hitCount = 1;
+                dealer.hitCount = 1;
             }
             else if (hitCount == 1)
             {
