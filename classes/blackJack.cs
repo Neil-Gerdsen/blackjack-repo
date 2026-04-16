@@ -3,6 +3,7 @@ using oopTest.classes.player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
@@ -13,6 +14,10 @@ namespace oopTest.classes.blackJack
     {
         private deck deck;
         public bool canPlay { get; set; } = true;
+        public bool stand { get; set; } = false;
+        public bool hit { get; set; } = false;
+        public int TrainerPoints { get; set; } = 0;
+        private bool originalAdviceWasHit = false;
 
         public blackJack(deck deck)
         {
@@ -45,56 +50,103 @@ namespace oopTest.classes.blackJack
                 aceCount--;
             }
 
-          
+
 
             return dealerTotal;
         }
-        public void Message(List<Card> PlayerHand, List<Card> DealerHand)
+        public void Message( List<Card> DealerHand)
         {
-            if (CalculateScore(DealerHand) >= 17)
+            int dealerScore = CalculateScore(DealerHand);
+
+            if (dealerScore >= 17)
             {
-                if (CalculateScore(DealerHand) == 21)
+                originalAdviceWasHit = false;
+                if (dealerScore <= 21)
                 {
                     MessageBox.Show("it would be wise if you stand");
                 }
-                else
+                else if (dealerScore == 21)
                 {
                     MessageBox.Show("wow you are super lucky dont take a risk like this to mush");
                 }
             }
-            else if (CalculateScore(DealerHand) < 17)
+            else if (dealerScore < 17)
             {
+                originalAdviceWasHit = true;
                 MessageBox.Show("it would be wise if you hit");
             }
-
         }
 
         public bool CanPLayDealer(List<Card> DealerHand)
         {
-            
-            
+
+
             if (CalculateScore(DealerHand) > 21)
             {
                 canPlay = false;
                 MessageBox.Show("Player win dealer bust");
             }
-           
-          return canPlay;
-            
+
+            return canPlay;
+
+        }
+        public void DealerTrainer(List<Card> DealerHand)
+        {
+            // Calculate dealer score once
+            int score = CalculateScore(DealerHand);
+
+            if (stand)
+            {
+                // Player chose to stand
+                if (originalAdviceWasHit)
+                {
+                    // Message advised HIT, but you stood against advice -> penalize
+                    TrainerPoints -= 20;
+                }
+                else
+                {
+                    // Message advised STAND, you followed it -> reward based on outcome
+                    if (score <= 16)
+                    {
+                        // Shouldn't have stood (dealer too low) -> penalize
+                        TrainerPoints -= 20;
+                    }
+                    else if (score == 17)
+                    {
+                        TrainerPoints += 30;
+                    }
+                    else
+                    {
+                        TrainerPoints += 20;
+                    }
+                }
+                // reset flag after scoring
+                stand = false;
+            }
+            else if (hit)
+            {
+                // Player chose to hit
+                if (originalAdviceWasHit)
+                {
+                    // Message advised HIT, you followed it -> reward
+                    if (score <= 21)
+                    {
+                        TrainerPoints += 20;
+                    }
+                    else
+                    {
+                        // Bust (over 21)
+                        TrainerPoints -= 15;
+                    }
+                }
+                else
+                {
+                    // Message advised STAND, but you hit against advice -> penalize
+                    TrainerPoints -= 15;
+                }
+                // reset flag after scoring
+                hit = false;
+            }
         }
     }
 }
-//if (dealerScore >= 17 && dealerScore < 21)
-//{
-//    if (dealerScore == 21)
-//    {
-//        feedback = "wow you are super lucky dont take a risk like this to mush";
-//    }
-//    else
-//    {
-//        feedback = "you are lucky it would be wise to stand now";
-//    }
-
-//    MessageBox.Show(feedback);
-
-//}

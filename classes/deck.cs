@@ -63,13 +63,6 @@ namespace oopTest.classes
 
        
 
-        //public void Hit(List<Card> DealerHand)
-        //{
-        //    if (Cards.Count == 0)
-        //        throw new Exception("Geen kaarten meer in het deck!");
-        //    DealerHand.Add(Cards[0]);
-        //    Cards.RemoveAt(0);
-        //    //MessageBox.Show(DealerHand());
-        //}
+       
     }
 }

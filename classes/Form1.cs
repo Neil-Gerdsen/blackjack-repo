@@ -60,22 +60,26 @@ namespace oopTest
                 pictureBox2Player.Image = Image.FromFile("Images/" + player.PlayerHand[1].Image);
 
             }
-            game.Message(player.PlayerHand, dealer.DealerHand);
-
+            game.Message(dealer.DealerHand);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             int dealerScore = game.CalculateScore(dealer.DealerHand);
-            bool canDealerPlay = game.CanPLayDealer(dealerScore);
+            bool canDealerPlay = game.CanPLayDealer(dealer.DealerHand);
             string result;
             string feedback;
             int hitCount = dealer.hitCount;
             
-            if(Can)
+            
            
             dealer.Hit(dealer.DealerHand);
-            
+            // mark that a hit action occurred so trainer can score it
+            game.hit = true;
+            game.stand = false;
+            // recompute dealer score after hit
+            dealerScore = game.CalculateScore(dealer.DealerHand);
+            game.DealerTrainer(dealer.DealerHand);
             //pictureBoxDealer2.Image = Image.FromFile("Images/" + dealer.DealerHand[1].Image);
 
             if (hitCount == 0)
@@ -94,9 +98,19 @@ namespace oopTest
             {
                 result = "Dealer bust! speler wint!";
                 MessageBox.Show(result);
+
+                // apply trainer scoring for the hit that caused the bust
+                game.DealerTrainer(dealer.DealerHand);
+                MessageBox.Show($"Trainer points: {game.TrainerPoints}");
+
+                // reset for new round
+                ResetRound();
+                return;
             }
 
-            game.Message(player.PlayerHand, dealer.DealerHand);
+            // update UI and trainer for this hit
+            game.Message(dealer.DealerHand);
+            
 
         }
 
@@ -134,23 +148,37 @@ namespace oopTest
                 result = "Dealer wint!";
             else
                 result = "Gelijkspel!";
-
+            game.DealerTrainer(dealer.DealerHand);
             MessageBox.Show(result);
+            MessageBox.Show(game.TrainerPoints.ToString());
+            // reset UI and hands for a new round
+            ResetRound();
+
+
+
+        }
+
+        // Reset hands, UI and relevant flags to start a new round
+        private void ResetRound()
+        {
             player.PlayerHand.Clear();
             dealer.DealerHand.Clear();
-            playerScore = 0; dealerScore = 0;
+
+            // reset picture boxes
             pictureBoxDealer1.Image = null;
             pictureBoxDealer2.Image = null;
             pictureBoxDealer3.Image = null;
             pictureBoxDealer4.Image = null;
-
-
-            // Player picture boxes clearen
             pictureBox1Player.Image = null;
             pictureBox2Player.Image = null;
 
+            // reset counters and flags
+            dealer.hitCount = 0;
+            game.hit = false;
+            game.stand = false;
 
-
+            // reshuffle deck for a fresh round
+            deck.Shuffle();
         }
 
 
